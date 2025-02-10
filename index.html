@@ -1,1 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tekniska museet | Prompt Battle</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta
+			name="apple-mobile-web-app-status-bar-style"
+			content="black-translucent"
+		/>
+        <link rel="stylesheet" href="css/style.css" />
+        <script module src="js/script.js" defer></script>
+    </head>
+    <body data-step="1">
+        <header>
+            <h1>Prompt Battle</h1>
+            <div id="playerName">Spelare:</div>
+            <div id="playerScore">Poäng:</div>
+        </header>
+        <main>
+            <section id="step-1">
+                <div class="left">
+                    <input
+                        type="text"
+                        id="nameInput"
+                        placeholder="Skriv ditt namn..."
+                        maxlength="20"
+                    />
+                </div>
+                <div class="right">
+                    <button id="nameSubmitButton">Starta battle</button>
+                </div>
+                <div class="footer">
+                    <img
+                        id="logo"
+                        src="img/logo.png"
+                        alt="Prompt Battle Logo"
+                    />
+                </div>
+            </section>
 
+            <section id="step-2">
+                <div class="left">
+                    <div
+                        class="textarea"
+                        type="text"
+                        spellcheck=false
+                        id="promptInput"
+                        placeholder="Skriv din prompt..."
+                        contenteditable="true"
+                    ></div>
+                </div>
+                <div class="right">
+                    <div id="generatingImageVideo"></div>
+                    <button id="promptSubmitButton" alt="Generera bild">
+                        Generera bild
+                    </button>
+                </div>
+                <div class="footer">
+                    <div id="timer"></div>
+                </div>
+            </section>
+
+            <section id="step-3">
+                <div class="left">
+                    <h2 id="promptText"></h2>
+                </div>
+                <div class="right">
+                    <img id="generatedImage" src="" alt="Generated Image" />
+                </div>
+                <div class="footer">
+                    <button id="tryAgainButton">Ny runda</button>
+                    <button id="restartButton">
+                        Tillbaka till startskärmen
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <footer></footer>
+        <audio id="scoreIncreaseAudio" src="audio/Point_Bonus Win.mp3"></audio>
+        <audio
+            id="generatingImageAudio"
+            src="audio/Wait_Abstract Cinematic Trip Hop Edit.mp3"
+            loop
+        ></audio>
+    </body>
+</html>
