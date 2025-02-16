@@ -25,7 +25,7 @@ function handleMessage(message) {
       handleSetRandomPrompt();
       break;
     case "imageGenerated":
-      updateImage(message.imageUrl);
+      updateImage(message.imageUrl, message.prompt);
       break;
     case "error":
       displayError(message.message); // Handle errors
@@ -88,7 +88,7 @@ function handleSetRandomPrompt() {
   checkPlaceholder();
 }
 
-function updateImage(imageUrl) {
+function updateImage(imageUrl, imagePrompt) {
   const generateButton = document.getElementById("generateButton");
   const promptInput = document.getElementById("promptInput");
   if (generateButton) {
@@ -96,9 +96,11 @@ function updateImage(imageUrl) {
     generateButton.textContent = "Generera";
     promptInput.contentEditable = true;
   }
-  document.getElementById(
-    "imageContainer"
-  ).innerHTML = `<img src="${imageUrl}">`;
+  const images = document.getElementById("images");
+  const imageContainer = document.createElement("div");
+  imageContainer.classList.add("imageContainer");
+  imageContainer.innerHTML = `<p class="imageTitle">${imagePrompt}</p><img src="${imageUrl}" title="${imagePrompt}" alt="${imagePrompt}">`;
+  images.prepend(imageContainer);
 }
 
 function submitPrompt() {

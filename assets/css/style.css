@@ -86,7 +86,8 @@ textarea {
 }
 
 /* Image container */
-#imageContainer {
+.imageContainer {
+  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
@@ -95,10 +96,19 @@ textarea {
 }
 
 /* Image inside container */
-#imageContainer img {
+.imageContainer img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.imageContainer p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: white;
+  font-size: 8px;
 }
 
 /* Footer stays at the bottom */
