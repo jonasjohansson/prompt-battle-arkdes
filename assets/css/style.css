@@ -121,7 +121,6 @@ button {
     minmax(250px, 1fr)
   ); /* Force 4 columns, but still responsive */
   gap: 15px;
-  padding: 20px;
 }
 
 .image-box {
