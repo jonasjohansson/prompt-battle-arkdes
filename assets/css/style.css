@@ -108,7 +108,10 @@ textarea {
   left: 0;
   padding: 1rem;
   background-color: white;
-  font-size: 8px;
+}
+
+.imageContainer p:first-letter {
+  text-transform: uppercase;
 }
 
 /* Footer stays at the bottom */
