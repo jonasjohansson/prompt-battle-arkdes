@@ -1,10 +1,15 @@
 require("dotenv").config(); // Load .env variables
 const { WebSocketServer } = require("ws");
+const fetch = require("node-fetch");
 
 const wss = new WebSocketServer({ port: 8080 });
 
 console.log("✅ Server is running on ws://localhost:8080");
 
+// Track the display WebSocket
+let displaySocket = null;
+
+// Short ID generator (4-character alphanumeric)
 const generateShortId = () => Math.random().toString(36).substring(2, 6);
 
 wss.on("connection", (ws) => {
@@ -20,7 +25,12 @@ wss.on("connection", (ws) => {
   });
 
   ws.on("close", () => {
-    console.log("❌ Connection closed.");
+    if (ws === displaySocket) {
+      console.log("📺 Display connection closed.");
+      displaySocket = null;
+    } else {
+      console.log("❌ Connection closed.");
+    }
   });
 });
 
@@ -34,7 +44,7 @@ const handleMessage = async (ws, { type, payload, playerId }) => {
       send(ws, { type: "status", message: "📺 You are now the display." });
       break;
     case "requestId":
-      assignPlayerId(ws, payload, ws);
+      assignPlayerId(ws, payload);
       break;
     case "startGame":
       handleStartGame();
@@ -53,9 +63,9 @@ const handleMessage = async (ws, { type, payload, playerId }) => {
   }
 };
 
-const assignPlayerId = (ws, existingId, wsClient) => {
+const assignPlayerId = (ws, existingId) => {
   let playerId = existingId || generateShortId();
-  wsClient.playerId = playerId; // Store player ID on the WebSocket connection
+  ws.playerId = playerId; // Store player ID on the WebSocket connection
   send(ws, { type: "playerId", playerId });
 };
 
@@ -66,7 +76,7 @@ const handleStartGame = () => {
 
 const handleGenerateRequest = () => {
   console.log("🚀 Broadcasting 'generate' to all players...");
-  broadcast({ type: "generate" }); // Tell all players to send their prompts
+  broadcast({ type: "generate" });
 };
 
 const handleSetRandomPrompt = () => {
@@ -91,12 +101,23 @@ const handleGenerateImage = async (ws, playerId, data) => {
     const imageUrl = await generateImage(data.prompt);
     console.log(`🎨 Image generated for Player ${playerId}`);
 
-    broadcast({
+    // Send the image only to the requesting client
+    send(ws, {
       type: "imageGenerated",
       playerId,
       prompt: data.prompt,
       imageUrl,
     });
+
+    // Also send to the display socket if it's connected
+    if (displaySocket && displaySocket.readyState === displaySocket.OPEN) {
+      send(displaySocket, {
+        type: "imageGenerated",
+        playerId,
+        prompt: data.prompt,
+        imageUrl,
+      });
+    }
   } catch (error) {
     console.error("❌ Error generating image:", error.message);
     send(ws, { type: "error", message: `🚫 ${error.message}` });
