@@ -1,0 +1,154 @@
+:root {
+  --gridColor: #ccc;
+  --highlightColor: hsl(360 100% 50%);
+  --highlightBackground: hsl(60 100% 76%);
+}
+
+/* Import external styles */
+@import url("reset.css");
+@import url("fonts.css");
+
+/* Fullscreen Text Scaling */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "ABCDiatype", sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1.1;
+}
+
+body {
+  padding: 1rem 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1 0H0V1V10H10V0H1ZM1 0C1.55228 0 2 0.447715 2 1C2 1.55228 1.55228 2 1 2C0.447715 2 0 1.55228 0 1C0 0.447715 0.447715 0 1 0Z' fill='%23fff'/%3E%3C/svg%3E");
+
+  background-position: -1px -1px;
+  background-size: 10px 10px;
+  background-repeat: repeat;
+  background-color: var(--gridColor);
+}
+
+.highlight {
+  background-color: var(--highlightBackground);
+  color: var(--highlightColor);
+}
+
+/* Game layout */
+#gameSection {
+  height: 100vh;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+#generateButton:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+main > * {
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+
+button,
+textarea {
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  line-height: inherit;
+}
+
+main {
+  padding: 0 1rem;
+}
+#promptInput:focus {
+  outline: none;
+}
+
+/* Editable div input (acts like textarea) */
+textarea {
+  width: 100%;
+  height: 50cqh;
+  outline: none;
+  border: none;
+  overflow: hidden;
+}
+/* Placeholder style */
+#promptInput.empty::before {
+  content: attr(data-placeholder);
+  color: gray;
+  pointer-events: none;
+  display: block;
+}
+
+/* Image container */
+#imageContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Image inside container */
+#imageContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Footer stays at the bottom */
+footer {
+  text-align: center;
+}
+
+/* Button */
+button {
+  display: inline-block;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+#imageGallery {
+  display: grid;
+  grid-template-columns: repeat(
+    4,
+    minmax(250px, 1fr)
+  ); /* Force 4 columns, but still responsive */
+  gap: 15px;
+  padding: 20px;
+}
+
+.image-box {
+  background: white;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.image-box img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+@media (max-width: 900px) {
+  #imageGallery {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(250px, 1fr)
+    ); /* Adjust to available space */
+  }
+}
+
+@media (max-width: 600px) {
+  #imageGallery {
+    grid-template-columns: 1fr; /* One column on small screens */
+  }
+}

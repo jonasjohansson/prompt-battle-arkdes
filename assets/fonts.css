@@ -1,0 +1,38 @@
+/* Font Faces */
+@font-face {
+  font-family: "ABCDiatype";
+  src: url("ABCDiatype-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ABCDiatype";
+  src: url("ABCDiatype-MediumItalic.woff2") format("woff2");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "ABCDiatype";
+  src: url("ABCDiatype-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ABCDiatype";
+  src: url("ABCDiatype-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "HersheyArkDes";
+  src: url("Hershey-ArkDes-40.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "ArkDesDot";
+  src: url("ArkDes-Dot.woff2") format("woff2");
+}

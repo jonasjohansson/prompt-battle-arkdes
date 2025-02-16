@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/style.css" />
+    <script src="player.js" defer></script>
+  </head>
+  <body>
+    <section id="playerSection">
+      <main>
+        <p>
+          Välkommen, spelare
+          <span id="playerId" class="highlight">Loading...</span>, till Prompt
+          Battle på ArkDes!
+        </p>
+        <p>
+          På den stora skärmen kommmer en bild visas, och din utmaning är att
+          "reverse-engineera" prompten bakom den – det vill säga, skapa en egen
+          prompt som genererar en liknande bild. När du är klar väljer du
+          "generera".
+        </p>
+        <button id="startButton" onclick="startGame()">Jag är redo!</button>
+      </main>
+    </section>
+
+    <section id="gameSection" style="display: none">
+      <main>
+        <div
+          contenteditable="true"
+          id="promptInput"
+          class="editable"
+          data-placeholder="Skriv in din prompt här…"
+        ></div>
+        <button id="generateButton" onclick="handleGenerate()" disabled>
+          Generera
+        </button>
+      </main>
+      <aside>
+        <div id="imageContainer"></div>
+      </aside>
+    </section>
+  </body>
+</html>

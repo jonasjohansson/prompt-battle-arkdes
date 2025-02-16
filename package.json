@@ -1,0 +1,19 @@
+{
+  "name": "prompt-battle-server",
+  "version": "1.0.0",
+  "description": "WebSocket server for Prompt Battle game",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "node-fetch": "^3.3.2",
+    "uuid": "^11.0.5",
+    "ws": "^8.18.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "license": "MIT"
+}
