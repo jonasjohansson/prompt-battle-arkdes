@@ -1,11 +1,3 @@
-const remote_server = "https://prompt-battle-server-arkdes.glitch.me";
-const local_server = "ws://localhost:8080";
-const ws = new WebSocket(remote_server);
-
-ws.onopen = () => {
-  console.log("Display connected to WebSocket server");
-};
-
 ws.onmessage = (event) => {
   const message = JSON.parse(event.data);
   if (message.type === "imageGenerated") {

@@ -7,7 +7,7 @@ function connectWebSocket() {
   ws = new WebSocket(remote_server);
 
   ws.onopen = () => {
-    console.log("Display connected to WebSocket server");
+    console.log("Connected to WebSocket server");
   };
 
   ws.onclose = () => {
