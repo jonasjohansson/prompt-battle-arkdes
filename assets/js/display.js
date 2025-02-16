@@ -1,4 +1,6 @@
-ws.send(JSON.stringify({ type: "registerDisplay" }));
+ws.onopen = () => {
+  ws.send(JSON.stringify({ type: "registerDisplay" }));
+};
 
 ws.onmessage = (event) => {
   const message = JSON.parse(event.data);
