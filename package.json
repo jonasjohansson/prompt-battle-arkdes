@@ -1,7 +1,7 @@
 {
-  "name": "prompt-battle-server",
+  "name": "prompt-battle-server-arkdes",
   "version": "1.0.0",
-  "description": "WebSocket server for Prompt Battle game",
+  "description": "WebSocket server for Prompt Battle game at ArkDes",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -9,7 +9,6 @@
   "dependencies": {
     "dotenv": "^16.4.7",
     "node-fetch": "^2.6.7",
-    "uuid": "^8.3.2",
     "ws": "^8.18.0"
   },
   "engines": {
