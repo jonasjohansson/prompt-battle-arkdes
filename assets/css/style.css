@@ -1,12 +1,12 @@
+/* Import external styles */
+@import url("reset.css");
+@import url("fonts.css");
+
 :root {
   --gridColor: #ccc;
   --highlightColor: hsl(360 100% 50%);
   --highlightBackground: hsl(60 100% 76%);
 }
-
-/* Import external styles */
-@import url("reset.css");
-@import url("fonts.css");
 
 /* Fullscreen Text Scaling */
 html,
