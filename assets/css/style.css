@@ -17,7 +17,7 @@ body {
   margin: 0;
   box-sizing: border-box;
   font-weight: 700;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   line-height: 1.1;
 }
 
@@ -103,9 +103,6 @@ textarea {
 }
 
 .imageContainer p {
-  position: absolute;
-  bottom: 0;
-  left: 0;
   padding: 1rem;
   background-color: white;
 }
