@@ -22,7 +22,7 @@ body {
 }
 
 body {
-  padding: 1rem 0;
+  padding-top: 1rem;
   background-image: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1 0H0V1V10H10V0H1ZM1 0C1.55228 0 2 0.447715 2 1C2 1.55228 1.55228 2 1 2C0.447715 2 0 1.55228 0 1C0 0.447715 0.447715 0 1 0Z' fill='%23fff'/%3E%3C/svg%3E");
 
   background-position: -1px -1px;
