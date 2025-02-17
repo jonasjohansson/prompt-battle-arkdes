@@ -43,6 +43,8 @@ function handlePlayerId(id) {
   playerId = id;
   localStorage.setItem("playerId", playerId);
   document.getElementById("playerId").innerText = playerId;
+  const startButton = document.getElementById("startButton");
+  startButton.disabled = false;
 }
 
 function startGame() {
