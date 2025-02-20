@@ -67,7 +67,8 @@ function handleGenerate() {
   const promptInput = document.getElementById("promptInput");
   promptInput.contentEditable = false;
   console.log("⚡ Received 'generate' command from server!");
-  submitPrompt(); // Automatically send the player's prompt
+  const prompt = promptInput.textContent;
+  if (prompt) submitPrompt(); // Automatically send the player's prompt
 }
 
 function handleSetRandomPrompt() {
