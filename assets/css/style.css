@@ -6,6 +6,19 @@
   --gridColor: #ccc;
   --highlightColor: hsl(360 100% 50%);
   --highlightBackground: hsl(60 100% 76%);
+  --fontFamily: "ABCDiatype", sans-serif;
+  --fontSize: 1.3rem;
+  --lineHeight: 1.1;
+  --fontWeight: 700;
+  --paddingTop: 1rem;
+  --borderRadius: 1rem;
+  --buttonPadding: 0.5rem;
+  --imageGap: 15px;
+  --imageBoxPadding: 10px;
+  --imageBorderRadius: 8px;
+  /* --boxShadow: 0 2px 5px rgba(0, 0, 0, 0.2); */
+  --placeholderColor: gray;
+  --backgroundPattern: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1 0H0V1V10H10V0H1ZM1 0C1.55228 0 2 0.447715 2 1C2 1.55228 1.55228 2 1 2C0.447715 2 0 1.55228 0 1C0 0.447715 0.447715 0 1 0Z' fill='%23fff'/%3E%3C/svg%3E");
 }
 
 /* Fullscreen Text Scaling */
@@ -13,18 +26,17 @@ html,
 body {
   width: 100%;
   height: 100%;
-  font-family: "ABCDiatype", sans-serif;
+  font-family: var(--fontFamily);
   margin: 0;
   box-sizing: border-box;
-  font-weight: 700;
-  font-size: 1.3rem;
-  line-height: 1.1;
+  font-weight: var(--fontWeight);
+  font-size: var(--fontSize);
+  line-height: var(--lineHeight);
 }
 
 body {
-  padding-top: 1rem;
-  background-image: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1 0H0V1V10H10V0H1ZM1 0C1.55228 0 2 0.447715 2 1C2 1.55228 1.55228 2 1 2C0.447715 2 0 1.55228 0 1C0 0.447715 0.447715 0 1 0Z' fill='%23fff'/%3E%3C/svg%3E");
-
+  padding-top: var(--paddingTop);
+  background-image: var(--backgroundPattern);
   background-position: -1px -1px;
   background-size: 10px 10px;
   background-repeat: repeat;
@@ -40,6 +52,7 @@ body {
 #gameSection {
   height: 100vh;
 }
+
 ::-webkit-scrollbar {
   display: none;
 }
@@ -65,6 +78,7 @@ textarea {
 main {
   padding: 0 1rem;
 }
+
 #promptInput:focus {
   outline: none;
 }
@@ -77,10 +91,11 @@ textarea {
   border: none;
   overflow: hidden;
 }
+
 /* Placeholder style */
 #promptInput.empty::before {
   content: attr(data-placeholder);
-  color: gray;
+  color: var(--placeholderColor);
   pointer-events: none;
   display: block;
 }
@@ -118,23 +133,24 @@ button {
   display: inline-block;
   cursor: pointer;
   width: 100%;
-  border-radius: 1rem;
-  padding: 0.5rem;
+  border-radius: var(--borderRadius);
+  padding: var(--buttonPadding);
 }
+
 #imageGallery {
   display: grid;
   grid-template-columns: repeat(
     4,
     minmax(250px, 1fr)
   ); /* Force 4 columns, but still responsive */
-  gap: 15px;
+  gap: var(--imageGap);
 }
 
 .image-box {
   background: white;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: var(--imageBoxPadding);
+  border-radius: var(--imageBorderRadius);
+  /* box-shadow: var(--boxShadow); */
   text-align: center;
 }
 
@@ -157,4 +173,9 @@ button {
   #imageGallery {
     grid-template-columns: 1fr; /* One column on small screens */
   }
+}
+
+/* Small class for paragraphs */
+.small {
+  font-size: calc(var(--fontSize) * 0.8);
 }
