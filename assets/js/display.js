@@ -4,6 +4,7 @@ ws.onopen = () => {
 
 ws.onmessage = (event) => {
   const message = JSON.parse(event.data);
+  console.log(message);
   if (message.type === "imageGenerated") {
     saveImageData(message);
     displayImage(message);
@@ -11,6 +12,7 @@ ws.onmessage = (event) => {
 };
 
 function saveImageData(imageData) {
+  console.log(imageData);
   let storedImages = JSON.parse(localStorage.getItem("imageHistory")) || [];
   storedImages.unshift(imageData); // Add new image to the beginning
   localStorage.setItem("imageHistory", JSON.stringify(storedImages));
