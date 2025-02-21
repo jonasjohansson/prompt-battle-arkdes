@@ -108,6 +108,7 @@ textarea {
 }
 
 /* Image inside container */
+img,
 .imageContainer img {
   width: 100%;
   height: 100%;
