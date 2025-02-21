@@ -38,10 +38,10 @@ function handleMessage(message) {
 function displayError(errorMessage) {
   alert(errorMessage);
   const generateButton = document.getElementById("generateButton");
-  if (generateButton) {
-    generateButton.disabled = false;
-    generateButton.textContent = "Generera";
-  }
+  generateButton.disabled = false;
+  generateButton.textContent = "Generera";
+  const promptInput = document.getElementById("promptInput");
+  promptInput.contentEditable = false;
 }
 
 function handlePlayerId(id) {
