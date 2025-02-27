@@ -119,7 +119,7 @@ function updateImage(imageUrl, imagePrompt) {
   const images = document.getElementById("images");
   const imageContainer = document.createElement("div");
   imageContainer.classList.add("imageContainer");
-  imageContainer.innerHTML = `<img src="${imageUrl}" title="${imagePrompt}" alt="${imagePrompt}"><p class="imageTitle">${imagePrompt}</p>`;
+  imageContainer.innerHTML = `<img src="${imageUrl}" title="${imagePrompt} by ${playerId}" alt="${imagePrompt} by ${playerId}"><p class="imageTitle"><span class="highlight">${playerId}</span>: ${imagePrompt}</p>`;
   images.prepend(imageContainer);
 }
 
